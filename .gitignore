@@ -1,0 +1,14 @@
+# Local dependencies
+node_modules/
+
+# Screenshot and Reports
+reports/
+
+# Local files
+local.log
+
+# LambdaTest
+.lambdatest
+logs/
+*.log
+ltcupdatego

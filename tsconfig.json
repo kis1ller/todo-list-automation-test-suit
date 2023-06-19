@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "strict": true,
+        "noEmit": true,
+        "removeComments": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "pretty": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "types": [
+            "node",
+            "expect-webdriverio",
+            "@wdio/globals/types",
+            "@wdio/cucumber-framework"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@base/*": [
+                "src/support/pages/@base/*"
+            ],
+            "pages/*": [
+                "src/support/pages/*"
+            ]
+        }
+    },
+    "include": [
+        "./src/**/*.ts"
+    ],
+    "compileOnSave": false,
+    "typeAcquisition": {
+        "enable": false
+    }
+}
