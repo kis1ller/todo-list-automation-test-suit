@@ -1,6 +1,6 @@
 # Todo List WebdriverIO E2E
 
-This project is a boilerplate for e2e test automation using webdriverio v8.
+UI and API automation tests for the application “Todoist”
 
 ## Getting started
 
@@ -84,6 +84,12 @@ In order to keep some codebases, we should run a [static analysis tool](https://
 
 ## Run
 
+Before running tests you should take API Token: https://todoist.com/app/settings/integrations/developer and replace token parameter in properties.ts file (test login credentials for https://todoist.com: ethnosmm@gmail.com / ethnotest)
+
+You can select scenarios in todolist.feature file by @test tag and run command in terminal:
+
+`npm run test`
+
 ### Debug
 
 The easiest way to run the tests is by pressing F5 when inside of a feature files, this is possible with the configurations present in the .vscode/launch.json together with VS Code.
@@ -119,6 +125,7 @@ Depending on the test scope or due to a time limitation, we not always want to r
 
 So, we can mark certain scenarios with tags like:
 
+-   @test
 -   @smoke-test
 -   @regression-test
 
@@ -230,4 +237,3 @@ Instead of having node latest version, the latest LTS version was locked.
 
 -   [Cucumber (Gherkin) Full Support](https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-# todo-list-automation-test-suit

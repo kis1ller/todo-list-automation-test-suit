@@ -2,7 +2,6 @@ import axios from "axios";
 import { AxiosInstance, AxiosResponse } from "axios";
 import { todoApi } from "../../../properties";
 
-
 export class TodoListApiV2Client {
     private client: AxiosInstance;
     constructor() {
@@ -16,14 +15,33 @@ export class TodoListApiV2Client {
         });
     }
 
-    public postTodolistProject(data: string):
+    public async postTodolistProject(data: string):
         Promise<AxiosResponse<any, any>> {
         return this.client.post("/projects", JSON.parse(data));
     }
 
-    public deleteTodolistProject(id: string):
+    public async deleteTodolistProject(id: string):
         Promise<AxiosResponse<any, any>> {
         return this.client.delete(`/projects/${id}`);
+    }
+
+    public async getTodolistTasks():
+        Promise<AxiosResponse<any, any>> {
+        return this.client.get("/tasks");
+    }
+
+    public async postTodolistTask(label: string):
+        Promise<AxiosResponse<any, any>> {
+        try {
+            const projectId = global.projectIds[0];
+            const data = {
+                content: label,
+                project_id: projectId
+            };
+            return await this.client.post("/tasks", data);
+        } catch {
+            throw Error;
+        }
     }
 }
 

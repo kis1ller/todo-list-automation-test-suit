@@ -1,30 +1,28 @@
-Feature: Todoist
 
-  @test
-  Scenario: Create Project and verify it through UI
-    Given I have created a test project via API:
+Feature: Todolist
+  UI and API automation tests for the application “Todoist”
+
+  Background:
+    Given I have created a test project via API using following body:
       """
       {
-        "name": "Test Todo List Project"
+        "name": "Test Todolist Project"
       }
       """
-    When I login into the web application
+
+  Scenario: Create Project via API and verify it through Web Application
+    When I login into the Todolist web application
     And I expect the current URL to include the "app/today" path
-    Then I should see the project named as "Test Todo List Project" in sidebar
+    Then I should see the project named as "Test Todolist Project" in sidebar
 
-# Scenario: Create Task via Web Application
-#   Given I have created a test project via API
-#   When I create a test task via the web application
-#   Then the task should be created correctly via the API
+  Scenario: Create Task via Web Application and verify it through API
+    When I login into the Todolist web application
+    And I expect the current URL to include the "app/today" path
+    And I create a test task via the web application with name "UI Test Todolist Task"
+    Then The task with name "UI Test Todolist Task" should accessible correctly via the API
 
-# Scenario: Create Task via API
-#   Given I have created a test project via API
-#   When I create a test task via the API
-#   Then the task should be visible on the web application
-
-# Scenario: Reopen Task
-#   Given I have created a test project via API
-#   And I have created a test task via the web application
-#   When I mark the test task as completed
-#   And I reopen the test task via the API
-#   Then the test task should appear in the mobile application
+  Scenario: Create Task via API and verify it through Web Application
+    When I create a test task via the API using following name "API Test Todolist Task"
+    And I login into the Todolist web application
+    And I expect the current URL to include the "app/today" path
+    Then The task with name "API Test Todolist Task" should be visible on the web application

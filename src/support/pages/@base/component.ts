@@ -4,7 +4,6 @@ abstract class Component {
     get element() {
         return $(this._selector);
     }
-
     constructor(selector: string) {
         this._selector = selector;
     }
